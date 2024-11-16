@@ -22,26 +22,25 @@ export default function LoginScreen() {
     }
 
     navigation.navigate('Home');
-
     setEmail('');
     setPassword('');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.htext1}>wecome to</Text>
-        <Text style={styles.htext2}>TRACkiT</Text>
-      </View>
-
       <Image
-          source={require('../../assets/images/trackit.png')}
-          style={styles.appIcon}
-        />
-
+        source={{
+          uri: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800',
+        }}
+        style={styles.bannerImage}
+      />
+      <View style={styles.header}>
+        <Text style={styles.htext}>Welcome Back to TRACkiT</Text>
+      </View>
       <TextInput
         style={styles.input}
         placeholder="Email"
+        placeholderTextColor="#999"
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
@@ -49,19 +48,18 @@ export default function LoginScreen() {
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor="#999"
         secureTextEntry={true}
         value={password}
         onChangeText={setPassword}
       />
-
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-
-      <Text style={styles.newToTrackit}>
-        New to TrackIt?{' '}
+      <Text style={styles.footerText}>
+        New to TRACkiT?{' '}
         <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
-          <Text style={styles.signUpText}>Sign Up</Text>
+          <Text style={styles.linkText}>Sign Up</Text>
         </TouchableOpacity>
       </Text>
     </ScrollView>
@@ -71,65 +69,56 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: '#F0F8FF',
+    backgroundColor: '#F4F4F4',
     alignItems: 'center',
-    paddingVertical: 60,
+    paddingVertical: 20,
+  },
+  bannerImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
   },
   header: {
-    padding: 20,
-    borderRadius: 15,
+    marginVertical: 20,
     alignItems: 'center',
   },
-  appIcon: {
-    width: '69%',
-    height: '41%',
-    marginBottom: 20,
-  },
-  htext1: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  htext2: {
-    fontSize: 70,
-    fontWeight: 'bold',
-    textAlign: 'center',
+  htext: {
+    fontSize: 28,
+    fontFamily: 'Inter-Bold',
+    color: '#1E90FF',
   },
   input: {
-    backgroundColor: '#F1F1F1',
-    textAlign: 'center',
+    backgroundColor: '#FFFFFF',
     width: '80%',
-    fontSize: 18,
+    fontSize: 16,
     paddingVertical: 12,
     marginVertical: 10,
-    marginBottom: 20,
-    borderRadius: 15,
-    borderWidth: 2,
-    borderColor: '#333',
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#CCC',
+    textAlign: 'center',
   },
   button: {
-    backgroundColor: '#87CEFA',
-    width: '50%',
+    backgroundColor: '#1E90FF',
+    width: '80%',
     paddingVertical: 15,
-    borderRadius: 15,
-    marginVertical: 10,
-    marginTop: 30,
-    marginBottom: 30,
-    borderWidth: 2,
-    borderColor: '#333',
+    borderRadius: 10,
+    marginVertical: 20,
   },
   buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
     textAlign: 'center',
-    fontSize: 20,
-    color: '#fff',
+    fontFamily: 'Inter-SemiBold',
   },
-  newToTrackit: {
-    textAlign: 'center',
-    fontSize: 16,
-    marginTop: 15,
+  footerText: {
+    marginTop: 20,
+    fontSize: 14,
+    color: '#555',
+    fontFamily: 'Inter-Regular',
   },
-  signUpText: {
-    color: '#87CEFA',
-    fontWeight: 'bold',
+  linkText: {
+    color: '#1E90FF',
+    fontFamily: 'Inter-Bold',
   },
 });
